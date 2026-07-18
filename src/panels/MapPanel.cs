@@ -1,6 +1,6 @@
-class MapPanel : UIPanel
+class MapPanel(ScreenObject parent) : UIPanel(parent, LayoutConfig.MapPanelConfig)
 {
-    struct Map
+    public struct Map
     {
         public int Width;
         public int Height;
@@ -8,10 +8,6 @@ class MapPanel : UIPanel
     }
 
     private Map _map;
-    public MapPanel(ScreenObject parent)
-        : base(parent, LayoutConfig.MapPanelConfig)
-    {
-    }
 
     public override void Render()
     {
@@ -25,10 +21,8 @@ class MapPanel : UIPanel
         }
         RenderBorder();
     }
-    public void LoadMap(int width, int height, ColoredGlyph[,] tiles)
+    public void LoadMap(Map map)
     {
-        _map.Width = width;
-        _map.Height = height;
-        _map.Tiles = tiles;
+        _map = map;
     }
 }

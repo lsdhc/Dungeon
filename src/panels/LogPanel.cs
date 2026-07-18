@@ -1,37 +1,41 @@
 class LogPanel : UIPanel
 {
-    private Queue<ColoredString> _logBuffer;
+    private ColoredString[] _logsToDisplay;
 
     private int _firstVisibleLineIndex;
-
-    private const int MAX_LOG_LINES = 14;
-
-    private const int BUFFER_SIZE = 30;
 
     public LogPanel(ScreenObject parent)
         : base(parent, LayoutConfig.LogPanelConfig)
     {
-        _logBuffer = new Queue<ColoredString>();
+        _logsToDisplay = new ColoredString[LayoutConfig.LogPanelConfig.INNER_H];
         _firstVisibleLineIndex = 0;
     }
 
+    public void setLogBuffer(ColoredString[] logBuffer)
+    {
+        _logsToDisplay = logBuffer;
+    }
+    
     public override void Render()
     {
         Surface.Clear();
         int i = 1;
-        foreach (var log in _logBuffer.Skip(_firstVisibleLineIndex).Take(MAX_LOG_LINES))
+        foreach (var line in _logsToDisplay)
         {
-            Surface.Print(1, i, log);
+            if(line == null)break;
+
+            Surface.Print(1, i, line);
             i++;
         }
         RenderBorder();
     }
 
+    /*
+    这一段逻辑是处理log的，Panel仅用于显示log，log的逻辑应该在其他地方处理
     public void AddLog(ColoredString message)
     {
-        _logBuffer.Enqueue(message);
-        if (_logBuffer.Count > BUFFER_SIZE)
-            _logBuffer.Dequeue();
+        _logBuffer[_firstVisibleLineIndex] = message;
+        _firstVisibleLineIndex = (_firstVisibleLineIndex + 1) % BUFFER_SIZE;
         Render();
     }
 
@@ -49,4 +53,5 @@ class LogPanel : UIPanel
     {
         AddLog(ColoredString.Parser.Parse($"[c:r f:Gold][+]: {message}"));
     }
+    */
 }

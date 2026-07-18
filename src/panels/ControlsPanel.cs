@@ -2,8 +2,7 @@ class ControlsPanel : UIPanel
 {
     
     public ControlsPanel(ScreenObject parent)
-        : base(parent, LayoutConfig.ControlsPanel.X, LayoutConfig.ControlsPanel.Y,
-               LayoutConfig.ControlsPanel.W, LayoutConfig.ControlsPanel.H)
+        : base(parent, LayoutConfig.ControlsPanelConfig)
     {
     }
 

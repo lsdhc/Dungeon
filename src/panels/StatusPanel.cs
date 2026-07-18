@@ -15,8 +15,7 @@ class StatusPanel : UIPanel
     private Status _status;
 
     public StatusPanel(ScreenObject parent, Status status)
-        : base(parent, LayoutConfig.StatusPanel.X, LayoutConfig.StatusPanel.Y,
-               LayoutConfig.StatusPanel.W, LayoutConfig.StatusPanel.H)
+        : base(parent, LayoutConfig.StatusPanelConfig)
     {
         _status = status;
     }

@@ -4,9 +4,12 @@ class LogPanel : UIPanel
 
     private int _firstVisibleLineIndex;
 
+    private const int MAX_LOG_LINES = 14;
+
+    private const int BUFFER_SIZE = 30;
+
     public LogPanel(ScreenObject parent)
-        : base(parent, LayoutConfig.LogPanel.X, LayoutConfig.LogPanel.Y,
-               LayoutConfig.LogPanel.W, LayoutConfig.LogPanel.H)
+        : base(parent, LayoutConfig.LogPanelConfig)
     {
         _logBuffer = new Queue<ColoredString>();
         _firstVisibleLineIndex = 0;
@@ -16,7 +19,7 @@ class LogPanel : UIPanel
     {
         Surface.Clear();
         int i = 1;
-        foreach (var log in _logBuffer.Skip(_firstVisibleLineIndex).Take(LayoutConfig.LogPanel.MAX_LOG_LINES))
+        foreach (var log in _logBuffer.Skip(_firstVisibleLineIndex).Take(MAX_LOG_LINES))
         {
             Surface.Print(1, i, log);
             i++;
@@ -27,7 +30,7 @@ class LogPanel : UIPanel
     public void AddLog(ColoredString message)
     {
         _logBuffer.Enqueue(message);
-        if (_logBuffer.Count > LayoutConfig.LogPanel.BUFFER_SIZE)
+        if (_logBuffer.Count > BUFFER_SIZE)
             _logBuffer.Dequeue();
         Render();
     }

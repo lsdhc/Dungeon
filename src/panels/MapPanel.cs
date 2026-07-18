@@ -9,8 +9,7 @@ class MapPanel : UIPanel
 
     private Map _map;
     public MapPanel(ScreenObject parent)
-        : base(parent, LayoutConfig.MapPanel.X, LayoutConfig.MapPanel.Y,
-               LayoutConfig.MapPanel.W, LayoutConfig.MapPanel.H)
+        : base(parent, LayoutConfig.MapPanelConfig)
     {
     }
 

@@ -1,58 +1,33 @@
-static class LayoutConfig
+class LayoutConfig
 {
-    public struct MapPanel
+    public struct Panel
     {
-        public const int X = 1;
-        public const int Y = 0;
-        public const int W = 53;    // 含边框, 内容区 50
-        public const int H = 24;    // 含边框, 内容区 22
-        public const int INNER_W = W - 2;
-        public const int INNER_H = H - 2;
+        public int X;
+        public int Y;
+        public int W;
+        public int H;
+        public int INNER_W;
+        public int INNER_H;
+
+        public Panel(int x, int y, int w, int h)
+        {
+            X = x;
+            Y = y;
+            W = w;
+            H = h;
+            INNER_W = W - 2;
+            INNER_H = H - 2;
+        }
     }
+
+
+    public static readonly Panel MapPanelConfig = new(1, 0, 53, 24);
     
-    public struct MessagePanel
-    {
-        public const int X = 1;
-        public const int Y = 25;
-        public const int W = 52;    // 含边框, 内容区 50
-        public const int H = 4;     // 含边框, 内容区 2
-        public const int INNER_W = W - 2;
-        public const int INNER_H = H - 2;
-    }
+    public static readonly Panel StatusPanelConfig = new(55, 0, 34, 8);
 
-    public struct StatusPanel
-    {
-        public const int X = 55;
-        public const int Y = 0;
-        public const int W = 34;    // 含边框, 内容区 32
-        public const int H = 8;     // 含边框, 内容区 5
-        public const int INNER_W = W - 2;
-        public const int INNER_H = H - 2;
-    }
-    
-    public struct ControlsPanel
-    {
-        public const int X = 1;
-        public const int Y = 24;
-        public const int W = 88;    // 含边框, 内容区 86
-        public const int H = 6;     // 含边框, 内容区 3
-        public const int INNER_W = W - 2;
-        public const int INNER_H = H - 2;
-    }
+    public static readonly Panel ControlsPanelConfig = new(1, 24, 88, 6);
 
-    public struct LogPanel
-    {
-        public const int X = 55;
-        public const int Y = 8;
-        public const int W = 34;    // 含边框, 内容区 32
-        public const int H = 16;    // 含边框, 内容区 14
-        public const int INNER_W = W - 2;
-        public const int INNER_H = H - 2;
-
-        public const int BUFFER_SIZE = 30;    // 日志缓冲区大小
-        public const int MAX_LOG_LINES = INNER_H;  // 最大日志行数
-    }
-
+    public static readonly Panel LogPanelConfig = new(55, 8, 34, 16);
     public struct Screen
     {
         public const int W = 90;

@@ -36,8 +36,8 @@ class RootScreen : ScreenObject
 
     private static ColoredGlyph[,] CreateTestMap()
     {
-        int w = LayoutConfig.MapPanel.INNER_W;
-        int h = LayoutConfig.MapPanel.INNER_H;
+        int w = LayoutConfig.MapPanelConfig.INNER_W;
+        int h = LayoutConfig.MapPanelConfig.INNER_H;
         var tiles = new ColoredGlyph[w, h];
 
         var wall  = new ColoredGlyph(Color.Gray,       Color.Black, '#');

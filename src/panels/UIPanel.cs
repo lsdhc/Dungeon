@@ -2,10 +2,10 @@ abstract class UIPanel
 {
     protected ScreenSurface Surface { get; }
 
-    public UIPanel(ScreenObject parent, int x, int y, int w, int h)
+    public UIPanel(ScreenObject parent, LayoutConfig.Panel config)
     {
-        Surface = new ScreenSurface(w, h);
-        Surface.Position = (x, y);
+        Surface = new ScreenSurface(config.W, config.H);
+        Surface.Position = (config.X, config.Y);
         parent.Children.Add(Surface);
     }
 

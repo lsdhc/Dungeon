@@ -1,20 +1,5 @@
-using System.ComponentModel;
-
 class LogManager
 {
-    public enum LogType
-        {
-            COMMUN,
-            DANGER,
-            LUCKY,
-        }
-    public readonly struct Log
-    {
-        public string Message { get; init;}
-
-        public LogType Type { get; init;}
-    }
-
     private Queue<Log> LogQueue;
 
     public LogManager()
@@ -30,7 +15,7 @@ class LogManager
     public void AddCommunLog(String message)
     {
         if(IsQueueMax())LogQueue.Dequeue();
-        LogQueue.Enqueue(new Log(){Message = message,Type = LogType.COMMUN});
+        LogQueue.Enqueue(new Log(){Message = message,Type = LogType.COMMON});
     }
 
     public void AddDangerLog(String message)

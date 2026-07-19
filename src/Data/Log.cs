@@ -1,0 +1,1 @@
+public readonly record struct Log(string Message, LogType Type);

@@ -1,5 +1,3 @@
-using System.Net.Mime;
-
 class UIPanel
 {
     private LayoutConfig.Panel Config { get; }
@@ -26,7 +24,7 @@ class UIPanel
 
     private void RenderBorder()
     {
-        var shape = ShapeParameters.CreateStyledBoxThick(Color.Gray);
+        var shape = ShapeParameters.CreateStyledBoxThick(SadRogue.Primitives.Color.Gray);
         Surface.DrawBox(new Rectangle(0, 0, Surface.Width, Surface.Height), shape);
     }
 }

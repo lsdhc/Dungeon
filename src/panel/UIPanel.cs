@@ -1,3 +1,5 @@
+using System.Net.Mime;
+
 class UIPanel
 {
     private LayoutConfig.Panel Config { get; }
@@ -19,7 +21,6 @@ class UIPanel
     }
     public void Render()
     {
-        Surface.Clear();
         RenderBorder();
     }
 

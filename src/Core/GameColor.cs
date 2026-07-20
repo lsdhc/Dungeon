@@ -14,5 +14,6 @@ public static class GameColor
         int B
     );
     public static RGB Red = new(180,60,60);
+    public static RGB Gray = new(128,128,128);
 }
     

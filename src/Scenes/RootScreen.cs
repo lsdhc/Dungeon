@@ -7,6 +7,7 @@ class RootScreen : ScreenObject
     private readonly UIPanel _logPanel;
     private readonly UIPanel _controlsPanel;
     private readonly LogManager _logManager;
+    private readonly MapManager _mapManager;
     public RootScreen()
     {
         _mapPanel      = new UIPanel(this, LayoutConfig.MapPanelConfig);
@@ -15,12 +16,14 @@ class RootScreen : ScreenObject
         _controlsPanel = new UIPanel(this, LayoutConfig.ControlsPanelConfig);
 
         _logManager = new LogManager();
+        _mapManager = new MapManager();
 
         _logManager.AddCommunLog("test");
         _logManager.AddDangerLog("test");
         _logManager.AddLuckyLog("test");
 
         _logPanel.UpdateContent(LogSurfaceBuilder.BuildSurface(_logManager));
+        _mapPanel.UpdateContent(MapSurfaceBuilder.BuildSurface(_mapManager));
 
         _mapPanel.Render();
         _statusPanel.Render();

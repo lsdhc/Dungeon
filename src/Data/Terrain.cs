@@ -1,12 +1,7 @@
-class Terrain
+class Terrain(Style style, bool Accessible)
 {
-    private Style style;
-    private bool accessible;
-    public Terrain(Style style,bool Accessible)
-    {
-        this.style = style;
-        this.accessible = Accessible;
-    }
+    private readonly Style style = style;
+    private readonly bool accessible = Accessible;
 
     public Style GetStyle()
     {
@@ -17,4 +12,10 @@ class Terrain
     {
         return accessible;
     }
+
+    static private Style WallStyle = new(GameColor.Gray,'#');
+    static public Terrain Wall = new(WallStyle,false);
+
+    static private Style RoadStyle = new(GameColor.Gray,' ');
+    static public Terrain Road = new(RoadStyle,true);
 }

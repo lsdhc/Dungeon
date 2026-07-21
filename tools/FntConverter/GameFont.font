@@ -1,0 +1,10 @@
+{
+  "$type": "SadConsole.SadFont, SadConsole",
+  "Name": "GameFont",
+  "FilePath": "GameFont.png",
+  "GlyphHeight": 18,
+  "GlyphPadding": 0,
+  "GlyphWidth": 16,
+  "SolidGlyphIndex": 0,
+  "Columns": 16
+}

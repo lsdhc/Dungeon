@@ -21,4 +21,9 @@
     <PackageReference Include="SadConsole.Extended" Version="10.10.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="tools\**" />
+    <None Remove="tools\**" />
+  </ItemGroup>
+
 </Project>

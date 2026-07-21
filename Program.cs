@@ -8,6 +8,5 @@ Builder
     .SetWindowSizeInCells(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
     .SetStartingScreen<Dungeon.Scenes.RootScreen>()
     .IsStartingScreenFocused(true)
-    .ConfigureFonts(true)
+    .ConfigureFonts("src/Core/Font/GameFont.font")
     .Run();
-    

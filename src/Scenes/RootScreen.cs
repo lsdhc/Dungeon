@@ -18,9 +18,9 @@ class RootScreen : ScreenObject
         _logManager = new LogManager();
         _mapManager = new MapManager();
 
-        _logManager.AddCommunLog("test");
-        _logManager.AddDangerLog("test");
-        _logManager.AddLuckyLog("test");
+        _logManager.AddCommunLog("进入下一层");
+        _logManager.AddDangerLog("受到10点伤害");
+        _logManager.AddLuckyLog("获得100金币");
 
         _logPanel.UpdateContent(LogSurfaceBuilder.BuildSurface(_logManager));
         _mapPanel.UpdateContent(MapSurfaceBuilder.BuildSurface(_mapManager));

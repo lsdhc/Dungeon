@@ -46,6 +46,7 @@ class Style
     {
         SadRogue.Primitives.Color F = new(FColor.R,FColor.G,FColor.B);
         SadRogue.Primitives.Color B = new(BColor.R,BColor.G,BColor.B);
-        return new ColoredGlyph(F,B,sign);
+        int glyph = CharToGlyph.Map.TryGetValue(sign, out int idx) ? idx : sign;
+        return new ColoredGlyph(F, B, glyph);
     }
 }
